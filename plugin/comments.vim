@@ -141,7 +141,7 @@ function! CommentLine()
        execute ":silent! normal ^i\<\!--\<ESC>$a--\>\<ESC>==\<down>^"
     endif
   " for .vim files use "
-  elseif file_name =~ '\.vim$' || file_name =~ '\.vimrc$'
+  elseif file_name =~ '\.vim$' || file_name =~ 'vimrc$'
 	 execute ":silent! normal ^i\"\<ESC>\<down>^"
   " for .sql files use --
   elseif file_name =~ '\.sql$'
@@ -182,7 +182,7 @@ function! UnCommentLine()
   elseif file_name =~ '\.c$' || file_name =~ '\.h$' || file_name =~ '\.pc$' || file_name =~ '\.css$' || file_name =~ '\.js$'
     execute ":silent! normal :nohlsearch\<CR>:s/\\/\\*//\<CR>:s/\\*\\///\<CR>:nohlsearch\<CR>=="
   " for .vim files use "
-  elseif file_name =~ '\.vim$' || file_name =~ '\.vimrc$'
+  elseif file_name =~ '\.vim$' || file_name =~ 'vimrc$'
     execute ":silent! normal :nohlsearch\<CR>:s/\\\"//\<CR>:nohlsearch\<CR>"
   " for .sql files use --
   elseif file_name =~ '\.sql$'

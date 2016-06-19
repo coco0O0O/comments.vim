@@ -161,6 +161,13 @@ function! CommentLine()
   " for VHDL and Haskell files use -- 
   elseif file_name =~ '\.vhd$' || file_name =~ '\.vhdl$' || file_name =~ '\.hs$'
     execute ":silent! normal ^gI-- \<ESC>\<down>^"
+  " added by zhangchao 20150803
+  " for glf files use ;
+  elseif file_name =~ '\.glf$'
+    execute ":silent! normal ^gI; \<ESC>\<down>^"
+  " for matlab files use % 
+  elseif file_name =~ '\.m$'
+    execute ":silent! normal ^gI% \<ESC>\<down>^"
   " for all other files use # 
   else
     execute ":silent! normal ^i#\<ESC>\<down>^"
@@ -206,6 +213,12 @@ function! UnCommentLine()
   " for VHDL and Haskell files use --
   elseif file_name =~ '\.vhd$' || file_name =~ '\.vhdl$' || file_name =~ '\.hs$'
     execute ":silent! normal :nohlsearch\<CR>:s/-- //\<CR>:nohlsearch\<CR>"
+  " for matlab files use %
+  elseif file_name =~ '\.m$'
+    execute ":silent! normal :nohlsearch\<CR>:s/% //\<CR>:nohlsearch\<CR>"
+  " for glf files use --
+  elseif file_name =~ '\.glf$'
+    execute ":silent! normal :nohlsearch\<CR>:s/; //\<CR>:nohlsearch\<CR>"
   " for all other files use # 
   else
     execute ":silent! normal :nohlsearch\<CR>:s/\\#//\<CR>:nohlsearch\<CR>"
@@ -268,9 +281,16 @@ function! RangeCommentLine()
   " for fortran 90/95 files use !
   elseif file_name =~ '\.f90$' || file_name =~ '\.F90$' || file_name =~ '\.f95$' || file_name =~ '\.F95$'
     execute ":silent! normal :s/\\S/!\\0/\<CR>:nohlsearch<CR>"
+  " added by zhangchao 20150803
+  " for glf files use ;
+  elseif file_name =~ '\.glf$'
+    execute ":silent! normal ^gI; \<ESC>\<down>^"
   " for VHDL and Haskell files use --
   elseif file_name =~ '\.vhd$' || file_name =~ '\.vhdl$' || file_name =~ '\.hs$'
     execute ":silent! normal ^gI-- \<ESC>\<down>^"
+  " for matlab files use % 
+  elseif file_name =~ '\.m$'
+    execute ":silent! normal ^gI% \<ESC>\<down>^"
   " for all other files use #  
   else
     execute ":silent! normal :s/\\S/\\#\\0/\<CR>:nohlsearch<CR>"
@@ -315,6 +335,13 @@ function! RangeUnCommentLine()
   " for VHDL and Haskell files use --
   elseif file_name =~ '\.vhd$' || file_name =~ '\.vhdl$' || file_name =~ '\.hs$'
     execute ":silent! normal :s/-- //\<CR>:nohlsearch\<CR>"
+  " for matlab files use %
+  elseif file_name =~ '\.m$'
+    execute ":silent! normal :s/% //\<CR>:nohlsearch\<CR>"
+  " added by zhangchao 20150803
+  " for glf files use ;
+  elseif file_name =~ '\.glf$'
+    execute ":silent! normal :s/;//\<CR>:nohlsearch\<CR>"
   " for all other files use # 
   else
     execute ":silent! normal :s/\\#//\<CR>:nohlsearch\<CR>"

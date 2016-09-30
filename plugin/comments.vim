@@ -168,6 +168,9 @@ function! CommentLine()
   " for matlab files use % 
   elseif file_name =~ '\.m$'
     execute ":silent! normal ^gI% \<ESC>\<down>^"
+  " for lsp files use % 
+  elseif file_name =~ '\.lsp$'||file_name =~ '\.LSP$'
+    execute ":silent! normal ^gI; \<ESC>\<down>^"
   " for all other files use # 
   else
     execute ":silent! normal ^i#\<ESC>\<down>^"
@@ -218,6 +221,9 @@ function! UnCommentLine()
     execute ":silent! normal :nohlsearch\<CR>:s/% //\<CR>:nohlsearch\<CR>"
   " for glf files use --
   elseif file_name =~ '\.glf$'
+    execute ":silent! normal :nohlsearch\<CR>:s/; //\<CR>:nohlsearch\<CR>"
+  " for lsp files use --
+  elseif file_name =~ '\.lsp$'||file_name =~ '\.LSP$'
     execute ":silent! normal :nohlsearch\<CR>:s/; //\<CR>:nohlsearch\<CR>"
   " for all other files use # 
   else
@@ -291,6 +297,9 @@ function! RangeCommentLine()
   " for matlab files use % 
   elseif file_name =~ '\.m$'
     execute ":silent! normal ^gI% \<ESC>\<down>^"
+  " for lsp files use % 
+  elseif file_name =~ '\.lsp$'||file_name =~ '\.LSP$'
+    execute ":silent! normal ^gI; \<ESC>\<down>^"
   " for all other files use #  
   else
     execute ":silent! normal :s/\\S/\\#\\0/\<CR>:nohlsearch<CR>"
@@ -341,6 +350,9 @@ function! RangeUnCommentLine()
   " added by zhangchao 20150803
   " for glf files use ;
   elseif file_name =~ '\.glf$'
+    execute ":silent! normal :s/;//\<CR>:nohlsearch\<CR>"
+  " for lsp files use ;
+  elseif file_name =~ '\.lsp$'||file_name =~ '\.LSP$'
     execute ":silent! normal :s/;//\<CR>:nohlsearch\<CR>"
   " for all other files use # 
   else

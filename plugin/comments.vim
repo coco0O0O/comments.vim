@@ -168,12 +168,12 @@ function! CommentLine()
   " for matlab files use % 
   elseif file_name =~ '\.m$'
     execute ":silent! normal ^gI% \<ESC>\<down>^"
-<<<<<<< HEAD
-  " for lsp files use % 
+ "  for lsp files use % 
   elseif file_name =~ '\.lsp$'||file_name =~ '\.LSP$'
     execute ":silent! normal ^gI; \<ESC>\<down>^"
-=======
->>>>>>> 1918010b912d79b95b97d4a88a9468f9d2c98b5c
+ "  for lua files use -- 
+  elseif file_name =~ '\.lua$'||file_name =~ '\.LUA$'
+    execute ":silent! normal ^gI-- \<ESC>\<down>^"
   " for all other files use # 
   else
     execute ":silent! normal ^i#\<ESC>\<down>^"
@@ -225,12 +225,12 @@ function! UnCommentLine()
   " for glf files use --
   elseif file_name =~ '\.glf$'
     execute ":silent! normal :nohlsearch\<CR>:s/; //\<CR>:nohlsearch\<CR>"
-<<<<<<< HEAD
   " for lsp files use --
   elseif file_name =~ '\.lsp$'||file_name =~ '\.LSP$'
     execute ":silent! normal :nohlsearch\<CR>:s/; //\<CR>:nohlsearch\<CR>"
-=======
->>>>>>> 1918010b912d79b95b97d4a88a9468f9d2c98b5c
+  " for lua files use %
+  elseif file_name =~ '\.lua$'
+    execute ":silent! normal :nohlsearch\<CR>:s/-- //\<CR>:nohlsearch\<CR>"
   " for all other files use # 
   else
     execute ":silent! normal :nohlsearch\<CR>:s/\\#//\<CR>:nohlsearch\<CR>"
@@ -303,12 +303,12 @@ function! RangeCommentLine()
   " for matlab files use % 
   elseif file_name =~ '\.m$'
     execute ":silent! normal ^gI% \<ESC>\<down>^"
-<<<<<<< HEAD
   " for lsp files use % 
   elseif file_name =~ '\.lsp$'||file_name =~ '\.LSP$'
     execute ":silent! normal ^gI; \<ESC>\<down>^"
-=======
->>>>>>> 1918010b912d79b95b97d4a88a9468f9d2c98b5c
+  " for lua files use % 
+  elseif file_name =~ '\.lua$'
+    execute ":silent! normal ^gI-- \<ESC>\<down>^"
   " for all other files use #  
   else
     execute ":silent! normal :s/\\S/\\#\\0/\<CR>:nohlsearch<CR>"
@@ -360,12 +360,12 @@ function! RangeUnCommentLine()
   " for glf files use ;
   elseif file_name =~ '\.glf$'
     execute ":silent! normal :s/;//\<CR>:nohlsearch\<CR>"
-<<<<<<< HEAD
   " for lsp files use ;
   elseif file_name =~ '\.lsp$'||file_name =~ '\.LSP$'
     execute ":silent! normal :s/;//\<CR>:nohlsearch\<CR>"
-=======
->>>>>>> 1918010b912d79b95b97d4a88a9468f9d2c98b5c
+  " for lua files use %
+  elseif file_name =~ '\.lua$'
+    execute ":silent! normal :s/-- //\<CR>:nohlsearch\<CR>"
   " for all other files use # 
   else
     execute ":silent! normal :s/\\#//\<CR>:nohlsearch\<CR>"

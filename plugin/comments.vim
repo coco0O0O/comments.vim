@@ -167,7 +167,7 @@ function! CommentLine()
     execute ":silent! normal ^gI; \<ESC>\<down>^"
   " for matlab files use % 
   elseif file_name =~ '\.m$'
-    execute ":silent! normal ^gI% \<ESC>\<down>^"
+    execute ":silent! normal ^i%\t\<ESC>==\<down>^"
  "  for lsp files use % 
   elseif file_name =~ '\.lsp$'||file_name =~ '\.LSP$'
     execute ":silent! normal ^gI; \<ESC>\<down>^"
@@ -221,7 +221,7 @@ function! UnCommentLine()
     execute ":silent! normal :nohlsearch\<CR>:s/-- //\<CR>:nohlsearch\<CR>"
   " for matlab files use %
   elseif file_name =~ '\.m$'
-    execute ":silent! normal :nohlsearch\<CR>:s/% //\<CR>:nohlsearch\<CR>"
+    execute ":silent! normal :nohlsearch\<CR>:s/%[ ]\\?//\<CR>:nohlsearch\<CR>=="
   " for glf files use --
   elseif file_name =~ '\.glf$'
     execute ":silent! normal :nohlsearch\<CR>:s/; //\<CR>:nohlsearch\<CR>"
